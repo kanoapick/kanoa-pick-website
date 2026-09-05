@@ -103,7 +103,14 @@ export default function App() {
           <div className="shoaling-layout">
             <div className="shoaling-primary">
               <div className="shoaling-graphic"><img src={asset("wave-shape-cropped.jpg")} alt="Scientific illustration showing stages of wave shoaling and overturning" /></div>
-              <div className="project-copy"><p className="project-number">01</p><h3>Shoaling &amp; overturning</h3><p>Predicting the evolution and shape of waves as they approach the shoreline.</p></div>
+              <div className="project-copy">
+                <p className="project-number">01</p><h3>Shoaling &amp; overturning</h3>
+                <p>Predicting the evolution and shape of waves as they approach the shoreline.</p>
+                <a className="publisher-link shoaling-publisher" href="https://doi.org/10.1017/jfm.2026.11869" target="_blank" rel="noreferrer">
+                  <span className="cambridge-mark"><img src={asset("logo-cambridge.svg")} alt="Cambridge University Press" loading="lazy" /></span>
+                  <span><strong>Journal of Fluid Mechanics</strong><small>Read the publication</small></span>
+                </a>
+              </div>
             </div>
             <ScrollVideo src={asset("solitary-wave-comparison.mp4")} />
           </div>
@@ -128,9 +135,9 @@ export default function App() {
         <article className="project wavedrifter-project">
           <div className="wavedrifter-media">
             <img className="wavedrifter-field" src={asset("wavedrifter-field.jpg")} alt="Wavedrifters following a steepening wave in a wave pool" loading="lazy" />
-            <video className="wavedrifter-video" controls playsInline preload="none" poster={asset("wavedrifter-poster.jpg")} aria-label="Wavedrifter field footage at normal speed">
-              <source src={asset("wavedrifter.mp4")} type="video/mp4" />
-              <a href={asset("wavedrifter.mp4")}>Watch the Wavedrifter video</a>
+            <video className="wavedrifter-video" autoPlay muted loop controls playsInline preload="metadata" poster={asset("wavedrifter-loop-poster.jpg")} aria-label="Wavedrifter field footage at normal speed, looping from 56 seconds to 1 minute 6 seconds">
+              <source src={asset("wavedrifter-loop.mp4")} type="video/mp4" />
+              <a href={asset("wavedrifter-loop.mp4")}>Watch the Wavedrifter video</a>
             </video>
             <img className="wavedrifter-instrument" src={asset("wavedrifter.png")} alt="Wavedrifter housing, internal electronics, and inertial measurement unit" loading="lazy" />
           </div>
