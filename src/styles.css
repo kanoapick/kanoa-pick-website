@@ -26,8 +26,9 @@ nav a:hover { border-color:currentColor; }
 .text-link:hover,.about-links a:hover { opacity:.62; }
 .publisher-link { display:inline-flex; align-items:center; gap:1rem; margin-top:2.5rem; }
 .publisher-link:hover { opacity:.72; }
-.cambridge-mark { display:grid; place-items:center; width:2.1rem; height:2.1rem; }
-.cambridge-mark img { width:1.8rem; height:1.8rem; image-rendering:auto; }
+.feature-copy .publisher-link { align-items:flex-start; flex-direction:column; gap:.65rem; }
+.cambridge-mark { display:block; background:white; padding:.8rem 1rem; }
+.cambridge-mark img { width:12rem; max-width:100%; height:auto; }
 .publisher-link strong,.publisher-link small { display:block; }
 .publisher-link strong { font-family:Georgia,serif; font-size:1rem; font-weight:500; }
 .publisher-link small { margin-top:.25rem; color:#aaa; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; }
@@ -50,7 +51,19 @@ nav a:hover { border-color:currentColor; }
 .bathyboard-project { grid-column:1/-1; display:flex; gap:2.5rem; min-height:0; }
 .bathyboard-images { display:grid; grid-template-columns:1fr 1fr; gap:1rem; min-width:0; overflow:hidden; }
 .bathyboard-images img { width:100%; height:auto; aspect-ratio:3/2; object-fit:cover; object-position:center; }
+.bathyboard-schematic { display:flex; align-items:center; background:white; }
+.bathyboard-schematic img { aspect-ratio:auto; object-fit:contain; }
 .bathyboard-project>div:last-child { align-self:auto; padding:0; }
+.project-publisher { margin-top:1rem; max-width:100%; }
+.project .publisher-logo { width:6rem; height:3rem; flex-shrink:0; object-fit:contain; background:white; padding:.25rem; }
+.project-publisher small { color:#45565b; line-height:1.5; }
+.wavedrifter-project { grid-column:1/-1; min-height:0; gap:2.5rem; background:#e6e4dc; }
+.wavedrifter-media { display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:center; }
+.wavedrifter-media .wavedrifter-field,.wavedrifter-video { width:100%; height:auto; aspect-ratio:4/3; object-fit:contain; background:var(--ink); }
+.wavedrifter-media .wavedrifter-field { object-fit:cover; }
+.wavedrifter-media .wavedrifter-instrument { grid-column:1/-1; width:100%; height:auto; object-fit:contain; }
+.project .project-award { max-width:none; margin:1.5rem 0 0; padding:.8rem 0 .8rem 1rem; border-left:2px solid var(--blue); font-size:.85rem; font-weight:600; }
+.project-award a:hover { text-decoration:underline; }
 .project-link { display:inline-block; margin-top:1.25rem; font-size:.75rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
 .project-link:hover { opacity:.6; }
 .surfing { background:#dce6e8; }
@@ -104,6 +117,8 @@ nav a:hover { border-color:currentColor; }
   .shoaling-video { width:min(100%,420px); justify-self:center; }
   .bathyboard-project { display:flex; gap:2rem; }
   .bathyboard-images { height:auto; grid-template-columns:1fr; }
+  .wavedrifter-media { grid-template-columns:1fr; }
+  .wavedrifter-project { grid-column:auto; min-height:0; }
   .bathyboard-project>div:last-child { padding:0; }
   .photo-grid { grid-template-columns:1fr; }
   .photo-grid figure,.photo-grid .photo-tall,.photo-grid .photo-wide { grid-column:auto; grid-row:auto; height:62vw; max-height:520px; }
