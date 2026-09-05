@@ -30,10 +30,13 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Set up Pages
+        id: pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d
       - name: Build
         run: npm run build
-      - name: Set up Pages
-        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d
+        env:
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
       - name: Upload site
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9
         with:

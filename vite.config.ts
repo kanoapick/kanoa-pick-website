@@ -6,5 +6,7 @@ const isUserSite = repositoryName?.toLowerCase().endsWith(".github.io");
 
 export default defineConfig({
   plugins: [react()],
-  base: repositoryName && !isUserSite ? `/${repositoryName}/` : "/",
+  base: process.env.PAGES_BASE_PATH !== undefined
+    ? `${process.env.PAGES_BASE_PATH.replace(/\/$/, "")}/`
+    : repositoryName && !isUserSite ? `/${repositoryName}/` : "/",
 });
