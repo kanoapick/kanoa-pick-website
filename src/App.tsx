@@ -68,6 +68,9 @@ export default function App() {
         <div>
           <p className="eyebrow">About</p>
           <h2>Surfer.<br />Ocean scientist.</h2>
+          <a className="affiliation-logo" href="https://scripps.ucsd.edu/" target="_blank" rel="noreferrer">
+            <img src={asset("logo-scripps-ucsd.png")} alt="Scripps Institution of Oceanography at UC San Diego" loading="lazy" />
+          </a>
         </div>
         <div className="about-copy">
           <p>Kanoa Pick is a Ph.D. student in Applied Ocean Science at Scripps Institution of Oceanography and a big-wave surfer. His research uses computational fluid dynamics and field observations to understand how waves transform and break.</p>
@@ -86,7 +89,7 @@ export default function App() {
         <div className="feature-copy">
           <p className="eyebrow">Selected research · 2026</p>
           <h2>The shape of a breaking wave</h2>
-          <p>Why do some waves pitch forward with thick, powerful lips while others break more gently? Numerical experiments show how wave height and seafloor slope control the path to breaking. They also predict the shape of the overturning jet.</p>
+          <p>Why do some waves pitch forward with thick, powerful lips while others break more gently? Numerical experiments show how wave height and seafloor slope affect the rate at which waves steepen. They also predict the shape of the overturning jet.</p>
           <a className="publisher-link" href="https://doi.org/10.1017/jfm.2026.11869" target="_blank" rel="noreferrer">
             <span className="cambridge-mark"><img src={asset("logo-cambridge.svg")} alt="Cambridge University Press" /></span>
             <span><small>Journal of Fluid Mechanics</small></span>
@@ -116,29 +119,41 @@ export default function App() {
           </div>
         </article>
         <article className="project project-photo bathyboard-project">
-          <div className="bathyboard-images">
-            <img src={asset("bathyboard-oahu.jpg")} alt="Kanoa conducting a nearshore bathymetric survey from the BathyBoard in Oahu" />
-            <a className="bathyboard-schematic" href={asset("bathyboard-schematic.pdf")} target="_blank" rel="noreferrer" aria-label="Open the full BathyBoard schematic PDF">
-              <img src={asset("bathyboard-schematic.png")} alt="BathyBoard schematic showing the surfboard, instrument placement, sonar beam, and field deployment" loading="lazy" />
-            </a>
+          <div className="bathyboard-media">
+            <ScrollVideo
+              src={asset("bathyboard-surfing-loop.mp4")}
+              className="bathyboard-video"
+              label="Kanoa surfing the BathyBoard, looping footage from 11 to 20 seconds"
+              poster={asset("bathyboard-surfing-poster.jpg")}
+              loop
+            />
+            <div className="bathyboard-images">
+              <img src={asset("bathyboard-oahu.jpg")} alt="Kanoa conducting a nearshore bathymetric survey from the BathyBoard in Oahu" />
+              <a className="bathyboard-schematic" href={asset("bathyboard-schematic.pdf")} target="_blank" rel="noreferrer" aria-label="Open the full BathyBoard schematic PDF">
+                <img src={asset("bathyboard-schematic.png")} alt="BathyBoard schematic showing the surfboard, instrument placement, sonar beam, and field deployment" loading="lazy" />
+              </a>
+            </div>
           </div>
           <div>
             <p className="project-number">02</p><h3>BathyBoard</h3>
             <p>A surfboard-based platform for mapping bathymetry where conventional survey vessels cannot safely operate.</p>
             <a className="publisher-link project-publisher" href={asset("bathyboard-manuscript.pdf")} target="_blank" rel="noreferrer">
               <img className="publisher-logo" src={asset("logo-asce.svg")} alt="ASCE" loading="lazy" />
-              <span><strong>Journal of Surveying Engineering</strong><small>In revision · ASCE</small></span>
+              <span><strong>Journal of Surveying Engineering</strong><small>Accepted · ASCE</small></span>
             </a>
-            <div><a className="project-link" href={asset("bathyboard-manuscript.pdf")} target="_blank" rel="noreferrer">Read the manuscript</a></div>
+            <div><a className="project-link" href={asset("bathyboard-manuscript.pdf")} target="_blank" rel="noreferrer">Read the accepted manuscript</a></div>
           </div>
         </article>
         <article className="project wavedrifter-project">
           <div className="wavedrifter-media">
             <img className="wavedrifter-field" src={asset("wavedrifter-field.jpg")} alt="Wavedrifters following a steepening wave in a wave pool" loading="lazy" />
-            <video className="wavedrifter-video" autoPlay muted loop controls playsInline preload="metadata" poster={asset("wavedrifter-loop-poster.jpg")} aria-label="Wavedrifter field footage at normal speed, looping from 56 seconds to 1 minute 6 seconds">
-              <source src={asset("wavedrifter-loop.mp4")} type="video/mp4" />
-              <a href={asset("wavedrifter-loop.mp4")}>Watch the Wavedrifter video</a>
-            </video>
+            <ScrollVideo
+              src={asset("wavedrifter-loop.mp4")}
+              className="wavedrifter-video"
+              label="Wavedrifter field footage at normal speed, looping from 56 seconds to 1 minute 6 seconds"
+              poster={asset("wavedrifter-loop-poster.jpg")}
+              loop
+            />
             <img className="wavedrifter-instrument" src={asset("wavedrifter.png")} alt="Wavedrifter housing, internal electronics, and inertial measurement unit" loading="lazy" />
           </div>
           <div>
