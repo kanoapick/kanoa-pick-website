@@ -13,6 +13,13 @@ type PressItem = {
 
 const press: PressItem[] = [
   {
+    outlet: "STAB Magazine",
+    title: "Can We (Scientifically) Predict Barelling Waves?",
+    href: "https://stabmag.com/features/can-we-scientifically-predict-barelling-waves/",
+    year: "2026",
+    icon: "icon-stab.ico",
+  },
+  {
     outlet: "UC San Diego Today",
     title: "Surf’s Up: How the Seafloor Shapes Breaking Waves",
     href: "https://today.ucsd.edu/story/surfs-up-how-the-seafloor-shapes-breaking-waves",
@@ -25,14 +32,6 @@ const press: PressItem[] = [
     href: "https://www.instagram.com/reel/DbySR_LMDRD/",
     year: "2026",
     icon: "icon-surfline.ico",
-  },
-  {
-    outlet: "Scripps Oceanography",
-    title: "Rad Research: What shapes a breaking wave?",
-    href: "https://www.instagram.com/reel/Dc1KL3hhoDB/",
-    year: "2026",
-    icon: "logo-scripps.svg",
-    wideIcon: true,
   },
   {
     outlet: "LAist 89.3 FM",
