@@ -182,10 +182,10 @@ export default function App() {
           <h2 id="surfing-title">Time in the water.</h2>
         </div>
         <div className="photo-grid">
-          <figure className="photo-tall"><a className="gallery-link" href={asset("todos-santos.jpg")} target="_blank" rel="noreferrer" aria-label="View full photo: Surfing at Todos Santos"><img src={asset("todos-santos.jpg")} alt="Kanoa Pick descending the face of a large wave at Todos Santos" loading="lazy" decoding="async" /></a></figure>
-          <figure><a className="gallery-link" href={asset("big-wave-turn.jpg")} target="_blank" rel="noreferrer" aria-label="View full photo: Turning on a large wave"><img src={asset("big-wave-turn.jpg")} alt="Kanoa Pick making a high-speed turn on a large wave" loading="lazy" decoding="async" /></a></figure>
-          <figure><a className="gallery-link" href={asset("big-wave-line.jpg")} target="_blank" rel="noreferrer" aria-label="View full photo: Riding a large blue wave"><img src={asset("big-wave-line.jpg")} alt="A surfer drawing a line across a powerful blue wave" loading="lazy" decoding="async" /></a></figure>
-          <figure><a className="gallery-link" href={asset("paddle-out.jpg")} target="_blank" rel="noreferrer" aria-label="View full photo: Paddling out at sunset"><img src={asset("paddle-out.jpg")} alt="Surfer paddling through golden evening light" loading="lazy" decoding="async" /></a></figure>
+          <figure className="gallery-photo photo-tall"><img src={asset("todos-santos.jpg")} alt="Kanoa Pick descending the face of a large wave at Todos Santos" loading="lazy" decoding="async" /></figure>
+          <figure className="gallery-photo"><img src={asset("big-wave-turn.jpg")} alt="Kanoa Pick making a high-speed turn on a large wave" loading="lazy" decoding="async" /></figure>
+          <figure className="gallery-photo"><img src={asset("big-wave-line.jpg")} alt="A surfer drawing a line across a powerful blue wave" loading="lazy" decoding="async" /></figure>
+          <figure className="gallery-photo"><img src={asset("paddle-out.jpg")} alt="Surfer paddling through golden evening light" loading="lazy" decoding="async" /></figure>
         </div>
       </section>
 
@@ -199,9 +199,9 @@ export default function App() {
         </div>
         <div className="hiking-gallery" aria-label="Hiking on Oʻahu">
           {hikingPhotos.map((photo) => (
-            <a className="gallery-link hiking-photo" href={asset(photo.file)} target="_blank" rel="noreferrer" key={photo.file} aria-label={`View full photo: ${photo.alt}`}>
+            <figure className="gallery-photo hiking-photo" key={photo.file}>
               <img src={asset(photo.file)} alt={photo.alt} loading="lazy" decoding="async" width="1066" height="1600" />
-            </a>
+            </figure>
           ))}
         </div>
         <div className="hiking-stories">
