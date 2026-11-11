@@ -8,7 +8,6 @@ type PressItem = {
   href: string;
   year: string;
   icon: string;
-  wideIcon?: boolean;
 };
 
 const press: PressItem[] = [
@@ -42,6 +41,12 @@ const press: PressItem[] = [
   },
 ];
 
+const hikingPhotos = [
+  { file: "hiking-exposed-ridge.webp", alt: "A hiker climbing an exposed rocky ridge above the coast" },
+  { file: "hiking-ridge-rest.webp", alt: "A hiker resting on a rock pinnacle along the ridgeline" },
+  { file: "hiking-misty-cliffs.webp", alt: "A hiker climbing beside steep forested cliffs in the mist" },
+];
+
 export default function App() {
   return (
     <main>
@@ -49,6 +54,7 @@ export default function App() {
         <nav aria-label="Main navigation">
           <a href="#work">Work</a>
           <a href="#surfing">Surfing</a>
+          <a href="#hiking">Hiking</a>
           <a href="#press">Press</a>
           <a href="#about">About</a>
         </nav>
@@ -96,94 +102,132 @@ export default function App() {
         </div>
       </section>
 
-      <section className="research-grid section-pad">
-        <article className="research-lead">
+      <section className="research section-pad" aria-labelledby="research-title">
+        <div className="section-heading">
           <p className="eyebrow">Research</p>
-          <h2>From seafloor to breaking wave.</h2>
-        </article>
-        <article className="project project-dark">
-          <div className="shoaling-layout">
-            <div className="shoaling-primary">
-              <div className="shoaling-graphic"><img src={asset("wave-shape-cropped.jpg")} alt="Scientific illustration showing stages of wave shoaling and overturning" /></div>
-              <div className="project-copy">
-                <p className="project-number">01</p><h3>Shoaling &amp; overturning</h3>
-                <p>Predicting the evolution and shape of waves as they approach the shoreline.</p>
-                <a className="publisher-link shoaling-publisher" href="https://doi.org/10.1017/jfm.2026.11869" target="_blank" rel="noreferrer">
-                  <span className="cambridge-mark"><img src={asset("logo-cambridge.svg")} alt="Cambridge University Press" loading="lazy" /></span>
-                  <span><strong>Journal of Fluid Mechanics</strong><small>Read the publication</small></span>
+          <h2 id="research-title">From seafloor to breaking wave.</h2>
+        </div>
+        <div className="research-grid">
+          <article className="project project-dark">
+            <div className="shoaling-layout">
+              <div className="shoaling-primary">
+                <div className="shoaling-graphic"><img src={asset("wave-shape-cropped.jpg")} alt="Scientific illustration showing stages of wave shoaling and overturning" /></div>
+                <div className="project-copy">
+                  <p className="project-number">01</p><h3>Shoaling &amp; overturning</h3>
+                  <p>Predicting the evolution and shape of waves as they approach the shoreline.</p>
+                  <a className="publisher-link shoaling-publisher" href="https://doi.org/10.1017/jfm.2026.11869" target="_blank" rel="noreferrer">
+                    <span className="cambridge-mark"><img src={asset("logo-cambridge.svg")} alt="Cambridge University Press" loading="lazy" /></span>
+                    <span><strong>Journal of Fluid Mechanics</strong><small>Read the publication</small></span>
+                  </a>
+                </div>
+              </div>
+              <ScrollVideo src={asset("solitary-wave-comparison.mp4")} />
+            </div>
+          </article>
+          <article className="project project-photo bathyboard-project">
+            <div className="bathyboard-media">
+              <ScrollVideo
+                src={asset("bathyboard-surfing-loop.mp4")}
+                className="bathyboard-video"
+                label="Kanoa surfing the BathyBoard, looping footage from 11 to 20 seconds"
+                poster={asset("bathyboard-surfing-poster.jpg")}
+                loop
+              />
+              <div className="bathyboard-images">
+                <img src={asset("bathyboard-oahu.jpg")} alt="Kanoa conducting a nearshore bathymetric survey from the BathyBoard in Oahu" />
+                <a className="bathyboard-schematic" href={asset("bathyboard-schematic.pdf")} target="_blank" rel="noreferrer" aria-label="Open the full BathyBoard schematic PDF">
+                  <img src={asset("bathyboard-schematic.png")} alt="BathyBoard schematic showing the surfboard, instrument placement, sonar beam, and field deployment" loading="lazy" />
                 </a>
               </div>
             </div>
-            <ScrollVideo src={asset("solitary-wave-comparison.mp4")} />
-          </div>
-        </article>
-        <article className="project project-photo bathyboard-project">
-          <div className="bathyboard-media">
-            <ScrollVideo
-              src={asset("bathyboard-surfing-loop.mp4")}
-              className="bathyboard-video"
-              label="Kanoa surfing the BathyBoard, looping footage from 11 to 20 seconds"
-              poster={asset("bathyboard-surfing-poster.jpg")}
-              loop
-            />
-            <div className="bathyboard-images">
-              <img src={asset("bathyboard-oahu.jpg")} alt="Kanoa conducting a nearshore bathymetric survey from the BathyBoard in Oahu" />
-              <a className="bathyboard-schematic" href={asset("bathyboard-schematic.pdf")} target="_blank" rel="noreferrer" aria-label="Open the full BathyBoard schematic PDF">
-                <img src={asset("bathyboard-schematic.png")} alt="BathyBoard schematic showing the surfboard, instrument placement, sonar beam, and field deployment" loading="lazy" />
+            <div>
+              <p className="project-number">02</p><h3>BathyBoard</h3>
+              <p>A surfboard-based platform for mapping bathymetry where conventional survey vessels cannot safely operate.</p>
+              <a className="publisher-link project-publisher" href={asset("bathyboard-manuscript.pdf")} target="_blank" rel="noreferrer">
+                <img className="publisher-logo" src={asset("logo-asce.svg")} alt="ASCE" loading="lazy" />
+                <span><strong>Journal of Surveying Engineering</strong><small>Accepted · ASCE</small></span>
               </a>
+              <div><a className="project-link" href={asset("bathyboard-manuscript.pdf")} target="_blank" rel="noreferrer">Read the accepted manuscript</a></div>
             </div>
-          </div>
-          <div>
-            <p className="project-number">02</p><h3>BathyBoard</h3>
-            <p>A surfboard-based platform for mapping bathymetry where conventional survey vessels cannot safely operate.</p>
-            <a className="publisher-link project-publisher" href={asset("bathyboard-manuscript.pdf")} target="_blank" rel="noreferrer">
-              <img className="publisher-logo" src={asset("logo-asce.svg")} alt="ASCE" loading="lazy" />
-              <span><strong>Journal of Surveying Engineering</strong><small>Accepted · ASCE</small></span>
-            </a>
-            <div><a className="project-link" href={asset("bathyboard-manuscript.pdf")} target="_blank" rel="noreferrer">Read the accepted manuscript</a></div>
-          </div>
-        </article>
-        <article className="project wavedrifter-project">
-          <div className="wavedrifter-media">
-            <img className="wavedrifter-field" src={asset("wavedrifter-field.jpg")} alt="Wavedrifters following a steepening wave in a wave pool" loading="lazy" />
-            <ScrollVideo
-              src={asset("wavedrifter-loop.mp4")}
-              className="wavedrifter-video"
-              label="Wavedrifter field footage at normal speed, looping from 56 seconds to 1 minute 6 seconds"
-              poster={asset("wavedrifter-loop-poster.jpg")}
-              loop
-            />
-            <img className="wavedrifter-instrument" src={asset("wavedrifter.png")} alt="Wavedrifter housing, internal electronics, and inertial measurement unit" loading="lazy" />
-          </div>
-          <div>
-            <p className="project-number">03</p><h3>Wavedrifter</h3>
-            <p>A low-cost, water-following drifter that uses an inertial measurement unit to observe how surface waves steepen, overturn, and transition to turbulence.</p>
-            <a className="publisher-link project-publisher" href="https://doi.org/10.1080/21664250.2023.2238949" target="_blank" rel="noreferrer">
-              <img className="publisher-logo" src={asset("logo-taylor-francis.jpg")} alt="Taylor & Francis" loading="lazy" />
-              <span><strong>Coastal Engineering Journal</strong><small>Published · Taylor &amp; Francis</small></span>
-            </a>
-            <p className="project-award"><a href="https://www.tandfonline.com/journals/tcej20/collections/best-paper-prize-coastal-engineering" target="_blank" rel="noreferrer">Coastal Engineering Journal · Best Paper Award, 2024</a></p>
-            <a className="project-link" href="https://doi.org/10.1080/21664250.2023.2238949" target="_blank" rel="noreferrer">Read the publication</a>
-          </div>
-        </article>
-      </section>
-
-      <section className="surfing" id="surfing">
-        <div className="section-pad surfing-heading"><h2>Time in the water.</h2></div>
-        <div className="photo-grid">
-          <figure className="photo-tall"><img src={asset("todos-santos.jpg")} alt="Kanoa Pick descending the face of a large wave at Todos Santos" /></figure>
-          <figure><img src={asset("big-wave-turn.jpg")} alt="Kanoa Pick making a high-speed turn on a large wave" /></figure>
-          <figure><img src={asset("big-wave-line.jpg")} alt="A surfer drawing a line across a powerful blue wave" /></figure>
-          <figure className="photo-wide"><img src={asset("paddle-out.jpg")} alt="Surfer paddling through golden evening light" /></figure>
+          </article>
+          <article className="project wavedrifter-project">
+            <div className="wavedrifter-media">
+              <img className="wavedrifter-field" src={asset("wavedrifter-field.jpg")} alt="Wavedrifters following a steepening wave in a wave pool" loading="lazy" />
+              <ScrollVideo
+                src={asset("wavedrifter-loop.mp4")}
+                className="wavedrifter-video"
+                label="Wavedrifter field footage at normal speed, looping from 56 seconds to 1 minute 6 seconds"
+                poster={asset("wavedrifter-loop-poster.jpg")}
+                loop
+              />
+              <img className="wavedrifter-instrument" src={asset("wavedrifter.png")} alt="Wavedrifter housing, internal electronics, and inertial measurement unit" loading="lazy" />
+            </div>
+            <div>
+              <p className="project-number">03</p><h3>Wavedrifter</h3>
+              <p>A low-cost, water-following drifter that uses an inertial measurement unit to observe how surface waves steepen, overturn, and transition to turbulence.</p>
+              <a className="publisher-link project-publisher" href="https://doi.org/10.1080/21664250.2023.2238949" target="_blank" rel="noreferrer">
+                <img className="publisher-logo" src={asset("logo-taylor-francis.jpg")} alt="Taylor & Francis" loading="lazy" />
+                <span><strong>Coastal Engineering Journal</strong><small>Published · Taylor &amp; Francis</small></span>
+              </a>
+              <p className="project-award"><a href="https://www.tandfonline.com/journals/tcej20/collections/best-paper-prize-coastal-engineering" target="_blank" rel="noreferrer">Coastal Engineering Journal · Best Paper Award, 2024</a></p>
+              <a className="project-link" href="https://doi.org/10.1080/21664250.2023.2238949" target="_blank" rel="noreferrer">Read the publication</a>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section className="press section-pad" id="press">
-        <div className="section-heading"><p className="eyebrow">Selected press</p><h2>Wave science,<br />beyond the lab.</h2></div>
+      <section className="surfing section-pad" id="surfing" aria-labelledby="surfing-title">
+        <div className="section-heading">
+          <p className="eyebrow">Surfing</p>
+          <h2 id="surfing-title">Time in the water.</h2>
+        </div>
+        <div className="photo-grid">
+          <figure className="photo-tall"><a className="gallery-link" href={asset("todos-santos.jpg")} target="_blank" rel="noreferrer" aria-label="View full photo: Surfing at Todos Santos"><img src={asset("todos-santos.jpg")} alt="Kanoa Pick descending the face of a large wave at Todos Santos" loading="lazy" decoding="async" /></a></figure>
+          <figure><a className="gallery-link" href={asset("big-wave-turn.jpg")} target="_blank" rel="noreferrer" aria-label="View full photo: Turning on a large wave"><img src={asset("big-wave-turn.jpg")} alt="Kanoa Pick making a high-speed turn on a large wave" loading="lazy" decoding="async" /></a></figure>
+          <figure><a className="gallery-link" href={asset("big-wave-line.jpg")} target="_blank" rel="noreferrer" aria-label="View full photo: Riding a large blue wave"><img src={asset("big-wave-line.jpg")} alt="A surfer drawing a line across a powerful blue wave" loading="lazy" decoding="async" /></a></figure>
+          <figure><a className="gallery-link" href={asset("paddle-out.jpg")} target="_blank" rel="noreferrer" aria-label="View full photo: Paddling out at sunset"><img src={asset("paddle-out.jpg")} alt="Surfer paddling through golden evening light" loading="lazy" decoding="async" /></a></figure>
+        </div>
+      </section>
+
+      <section className="hiking section-pad" id="hiking" aria-labelledby="hiking-title">
+        <div className="section-heading">
+          <p className="eyebrow">Hiking</p>
+          <div>
+            <h2 id="hiking-title">Along the ridgelines.</h2>
+            <p className="hiking-intro">Solo, unsupported traverses of Oʻahu’s two mountain ranges.</p>
+          </div>
+        </div>
+        <div className="hiking-gallery" aria-label="Hiking on Oʻahu">
+          {hikingPhotos.map((photo) => (
+            <a className="gallery-link hiking-photo" href={asset(photo.file)} target="_blank" rel="noreferrer" key={photo.file} aria-label={`View full photo: ${photo.alt}`}>
+              <img src={asset(photo.file)} alt={photo.alt} loading="lazy" decoding="async" width="1066" height="1600" />
+            </a>
+          ))}
+        </div>
+        <div className="hiking-stories">
+          <article>
+            <p className="eyebrow">KST</p>
+            <h3>Koʻolau Summit Trail</h3>
+            <p>A 56-mile traverse from Pupukea to Makapuʻu along Oʻahu’s windward ridgelines, with more than 27,000 feet of climbing through dense vegetation and exposed terrain.</p>
+            <p className="hiking-time">3 days, 9 hours, 21 minutes</p>
+            <a className="project-link" href={asset("kst-write-up.pdf")} target="_blank" rel="noreferrer">Read the KST write-up <span aria-hidden="true">↗</span></a>
+          </article>
+          <article>
+            <p className="eyebrow">WST</p>
+            <h3>Waiʻanae Summit Trail</h3>
+            <p>A 26-mile traverse from Kaʻena Point to Makakilo across Oʻahu’s hotter, drier western range, with 12,300 feet of climbing and thick overgrowth.</p>
+            <p className="hiking-time">20 hours, 44 minutes</p>
+            <a className="project-link" href={asset("wst-write-up.pdf")} target="_blank" rel="noreferrer">Read the WST write-up <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </section>
+
+      <section className="press section-pad" id="press" aria-labelledby="press-title">
+        <div className="section-heading"><p className="eyebrow">Selected press</p><h2 id="press-title">Wave science,<br />beyond the lab.</h2></div>
         <div className="press-list">
           {press.map((item) => (
             <a href={item.href} target="_blank" rel="noreferrer" className="press-row" key={item.href}>
-              <span className={`press-icon${item.wideIcon ? " press-icon-wide" : ""}`}><img src={asset(item.icon)} alt="" /></span>
+              <span className="press-icon"><img src={asset(item.icon)} alt="" loading="lazy" /></span>
               <span className="press-outlet">{item.outlet}</span>
               <span className="press-title">{item.title}</span>
               <span className="press-year">{item.year}</span>
