@@ -135,9 +135,9 @@ export default function App() {
               />
               <div className="bathyboard-images">
                 <img src={asset("bathyboard-oahu.jpg")} alt="Kanoa conducting a nearshore bathymetric survey from the BathyBoard in Oahu" />
-                <a className="bathyboard-schematic" href={asset("bathyboard-schematic.pdf")} target="_blank" rel="noreferrer" aria-label="Open the full BathyBoard schematic PDF">
+                <div className="bathyboard-schematic">
                   <img src={asset("bathyboard-schematic.png")} alt="BathyBoard schematic showing the surfboard, instrument placement, sonar beam, and field deployment" loading="lazy" />
-                </a>
+                </div>
               </div>
             </div>
             <div>
@@ -147,7 +147,10 @@ export default function App() {
                 <img className="publisher-logo" src={asset("logo-asce.svg")} alt="ASCE" loading="lazy" />
                 <span><strong>Journal of Surveying Engineering</strong><small>Accepted · ASCE</small></span>
               </a>
-              <div><a className="project-link" href={asset("bathyboard-manuscript.pdf")} target="_blank" rel="noreferrer">Read the accepted manuscript</a></div>
+              <div className="project-links">
+                <a className="project-link" href={asset("bathyboard-manuscript.pdf")} target="_blank" rel="noreferrer">Read the accepted manuscript</a>
+                <a className="project-link" href={asset("bathyboard-schematic.pdf")} target="_blank" rel="noreferrer">View the schematic</a>
+              </div>
             </div>
           </article>
           <article className="project wavedrifter-project">
